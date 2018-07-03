@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Weather } from './../model/weather.model';
 import { WeatherService } from './../service/weather.service';
 
@@ -11,17 +10,20 @@ import { WeatherService } from './../service/weather.service';
 export class HomeComponent implements OnInit {
 
   public cidade = '';
-  private weather: Weather;
+  private weather: Weather = new Weather();
 
   constructor(private weatherService: WeatherService ) { }
 
   ngOnInit() {
+
   }
 
-  public pesquisarCidade(): void {
-    this.weatherService.getClimaCidade2(this.cidade)
-      .subscribe((data: Weather) => this.weather = data,
-    error => console.log(error));
+
+
+  public getClimaCidade() {
+    this.weatherService.getClimaCidade(this.cidade).subscribe(data => {
+      console.log(data);
+    });
   }
 
 }
