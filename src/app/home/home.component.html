@@ -1,15 +1,11 @@
-<nav class="navbar navbar-light bg-light">
-  <form class="form-inline">
-    <input class="form-control mr-sm-2"
-      type="text"
-      aria-label="Search">
 
-    <input type="text" [value]="cidade" (input)="cidade = $event.target.value">
-
-    <button class="btn btn-outline-success my-2 my-sm-0"
-      (click)="pesquisarCidade()">Search
-    </button>
-    <br/>
-    <span>Cidade: {{cidade}}</span>
-  </form>
-</nav>
+<div class="jumbotron">
+  <h1 class="display-4">Bravi OpenWeatherAPI</h1>
+  <hr class="my-4">
+  <input class="form-control mr-sm-2"
+    type="text" aria-label="Search" [(ngModel)]="cidade"
+    placeholder="Type your City and press search to get the weather forecast">
+    <br>
+  <button class="btn btn-outline-success my-2 my-sm-0"
+    (click)="pesquisarCidade()">Search </button>
+</div>

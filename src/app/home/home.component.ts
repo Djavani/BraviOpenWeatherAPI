@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
   }
 
   public pesquisarCidade(): void {
-    console.log('nomeCidade: ' + this.cidade);
     this.weatherService.getClimaCidade2(this.cidade)
       .subscribe((data: Weather) => this.weather = data,
     error => console.log(error));
