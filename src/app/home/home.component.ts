@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   public cidade = '';
   public formVisivel = false;
-  private weather: Weather = new Weather();
+  public weather: Weather = new Weather();
 
 
   constructor(private weatherService: WeatherService ) { }
@@ -22,10 +22,12 @@ export class HomeComponent implements OnInit {
 
   public getClimaCidade() {
     this.weatherService.getClimaCidade(this.cidade).subscribe(data => {
-      debugger
-      if(data) {
+      if (data) {
         this.formVisivel = true;
         this.weather[0] = data;
+        console.log(this.weather[0]);
+      } else {
+        this.formVisivel = false;
       }
     });
   }

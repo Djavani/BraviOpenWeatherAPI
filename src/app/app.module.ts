@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { TopoComponent } from './topo/topo.component';
 
 import { WeatherService } from './service/weather.service';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -14,7 +15,8 @@ import { WeatherService } from './service/weather.service';
   declarations: [
     AppComponent,
     HomeComponent,
-    TopoComponent
+    TopoComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

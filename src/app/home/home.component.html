@@ -1,33 +1,69 @@
-
-<div class="jumbotron">
-  <h1 class="display-4">Bravi OpenWeatherAPI</h1>
-  <hr class="my-4">
-  <input class="form-control mr-sm-2"
-    type="text" aria-label="Search" [(ngModel)]="cidade"
-    placeholder="Type your City and press search to get the weather forecast">
-  <br>
-  <button class="btn btn-outline-success my-2 my-sm-0"
-    (click)="getClimaCidade()">Search
-  </button>
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-5">Bravi OpenWeather - API Example</h1>
+    <hr class="my-4">
+    <input class="form-control mr-sm-2"
+      type="text" aria-label="Search" [(ngModel)]="cidade"
+      placeholder="Your city name here...">
+    <br>
+    <button class="btn btn-outline-success my-2 my-sm-0" (click)="getClimaCidade()">Search
+    </button>
+  </div>
 </div>
 
 <div class="container">
-  <div *ngIf=formVisivel class="panel panel-default">
-    <form>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-      </div>
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+  <div class="alert alert-danger" role="alert" *ngIf=!formVisivel>
+    Attention: type a city name and then press search button.
   </div>
-</div>
+  <div *ngIf=formVisivel class="panel panel-default">
+    <div class="form-group">
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm">City:</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="weather[0].name">
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Country:</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="weather[0].sys.country">
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Main:</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="weather[0].weather[0].main">
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Description:</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="weather[0].weather[0].description">
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Temperature:</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="weather[0].main.temp">
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Humidity:</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="weather[0].main.humidity">
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Temp.Min:</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="weather[0].main.temp_min">
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Temp.Max:</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="weather[0].main.temp_max">
+      </div>
+    </div>
+  </div>
