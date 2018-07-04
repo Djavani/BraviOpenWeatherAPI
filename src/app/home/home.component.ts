@@ -13,12 +13,9 @@ export class HomeComponent implements OnInit {
   public formVisivel = false;
   public weather: Weather = new Weather();
 
-
   constructor(private weatherService: WeatherService ) { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   public getClimaCidade() {
     this.weatherService.getClimaCidade(this.cidade).subscribe(data => {
